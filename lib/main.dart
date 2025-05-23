@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
             future: futureCats,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                final imageData = snapshot.data!.first.url;
+                final imageData = snapshot.data?.first.url ?? "";
                 developer.log(imageData);
                 return Image.network(
                   imageData,
