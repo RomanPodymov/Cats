@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('Tests', () {
-    test('Parse cat', () {
+    test('Parse a cat', () {
       final expectedId = 'some id';
       final expectedUrl = 'some url';
       final expectedWidth = 200;

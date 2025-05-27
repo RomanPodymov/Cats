@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'cats.dart';
-import 'dart:developer' as developer;
 
 void main() {
   runApp(const MyApp());
@@ -52,12 +51,10 @@ class _MyHomePageState extends State<MyHomePage> {
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 final imageData = snapshot.data?.first.url ?? '';
-                developer.log(imageData);
                 return Image.network(
                   imageData,
                   errorBuilder: (context, error, stackTrace) {
-                    developer.log(error.toString());
-                    return Image.asset('');
+                    return Text('Error');
                   }
                 );
               } else if (snapshot.hasError) {
