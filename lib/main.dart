@@ -50,12 +50,13 @@ class _MyHomePageState extends State<MyHomePage> {
             future: futureCats,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                final imageData = snapshot.data?.first.url ?? '';
-                return Image.network(
-                  imageData,
-                  errorBuilder: (context, error, stackTrace) {
-                    return Text('Error');
-                  }
+                return ListView(
+                  padding: const EdgeInsets.all(8),
+                  children: snapshot.data!.map((item) => Container(
+                    height: 50,
+                    color: Colors.amber[600],
+                    child: Center(child: Image.network(item.url ?? ''))
+                  )).toList()
                 );
               } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
