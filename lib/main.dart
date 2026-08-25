@@ -65,7 +65,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: snapshot.data!.map((item) => Container(
                     height: 50,
                     color: Colors.amber[600],
-                    child: Center(child: Image.network(item.url ?? ''))
+                    child: Center(
+                      child: Image.network(
+                        item.url ?? '',
+                        errorBuilder: (context, error, stackTrace) =>
+                            const Icon(Icons.broken_image),
+                      ),
+                    )
                   )).toList()
                 );
               } else if (snapshot.hasError) {
